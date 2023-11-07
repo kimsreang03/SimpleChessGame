@@ -1,5 +1,5 @@
-#ifndef TIC_TAC_TOE
-#define TIC_TAC_TOE
+#ifndef CHESS_GAME
+#define CHESS_GAME
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,13 +23,13 @@ typedef struct PLAYER{
 }Player;
 // use struct to make code more readable cuz it has prefix "player."
 extern Player player;
+extern char buffer[MAX_BUF];
 
 // game.c
 extern char* generate_gid(); // generate a new game id for player
-extern void reset_board();
+extern void initialize_board();
 extern void draw_board();
-extern char boards[9]; 
-extern char buffer[MAX_BUF];
+extern char boards[8][8]; 
 
 // ui.c
 extern void draw_welcome_screen(); //print welcome screen

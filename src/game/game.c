@@ -1,33 +1,26 @@
 #include "game.h"
 
-char boards[9]; 
-char buffer[MAX_BUF];
+char boards[64];
+
+#define black 
+#define WHITE
+
+enum piece{
+  none = 0,
+  pawn = 1,
+  bishop = 2,
+  knife = 4,
+  rook = 5,
+  queen = 6,
+  king = 7
+};
 
 
+void initialize_board(){
 
-
-void reset_board(){
-
-  for(int i = 0; i < 9; i++){
-    boards[i] = ' ';  
-  }
+  for
 
 }
 
 
-void draw_board(){
 
-    printf("\n");
-
-    printf("     |     |     \n");
-    printf("  %c  |  %c  |  %c  \n", boards[0], boards[1], boards[2]);
-    printf("_____|_____|_____\n");
-    printf("     |     |     \n");
-    printf("  %c  |  %c  |  %c  \n", boards[3], boards[4], boards[5]);
-    printf("_____|_____|_____\n");
-    printf("     |     |     \n");
-    printf("  %c  |  %c  |  %c  \n", boards[6], boards[7], boards[8]);
-    printf("     |     |     \n");
-
-    printf("\n");
-}

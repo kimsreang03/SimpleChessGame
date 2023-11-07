@@ -2,6 +2,8 @@
 #include <errno.h>
 
 Player player;
+char buffer[MAX_BUF];
+
 
 int main(int argc, char* argv[]){
 
