@@ -1,27 +1,36 @@
 #include "game.h"
-#include <errno.h>
 
 Player player;
 char buffer[MAX_BUF];
+bool running = 1;
+
+int main(){
+
+  setlocale( LC_ALL, "en_US.UTF-8" );
+
+  initscr();
+  keypad(stdscr, true);
+  
 
 
-int main(int argc, char* argv[]){
+  while(running){
+    switch(draw_welcome_screen()){
+    
+      case PLAY_ONLINE:
+      player.name = get_player_name();
+      if(!player.name) continue; // user selected 'go back'
+      // player.gid = set_player_gid();
+      start_game_online();
+      break;
+        start_game_computer();
+      case PLAY_COMPUTER:
+      break;
 
-  if(argc != 2){
-    printf("usage: %s <game-name>\n", argv[0]);
-    return 0;
-  } 
+      case EXIT: running = 0; 
+      break;
+    }//switch
+  }
 
-  if(connect_to_server() == 0) printf("connect to the server successfully\n");
-  else printf("err: %s\n", strerror(errno));
-
-  player.name = argv[1];
-  player.gid = generate_gid();
-
-  printf("name: %s\n", player.name);
-  printf("gid: %s\n", player.gid);
-
-  free(player.gid);
-
+  endwin();
   return 0;
 }

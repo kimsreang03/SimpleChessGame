@@ -3,7 +3,7 @@ game_src = $(wildcard src/game/*.c)
 server_obj = $(server_src:.c=.o)
 game_obj = $(game_src:.c=.o)
 
-flags = -g -Wall
+flags = -g -Wall -lncursesw
 
 server: $(server_obj)
 	cc $(server_obj) $(flags) -o server
